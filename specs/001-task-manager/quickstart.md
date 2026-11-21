@@ -62,3 +62,17 @@ Mọi data boundary AsyncStorage phải được validate trước khi cast sang
 - iOS Expo Go: tạo/sửa/xóa/toggle/filter/persist.
 - Expo Web: thêm navigation bàn phím, visible focus và resize.
 - Chạy viewport điện thoại, tablet và desktop; không tràn ngang.
+
+## Kết quả xác minh bản triển khai
+
+Dự án hiện dùng **Expo SDK 58** để khớp với Expo Go trên iPhone. Sau khi nâng cấp, TypeScript và Expo Doctor (20/20) đạt, cả ba nền tảng đóng gói thành công. Kiểm thử trên iPhone vẫn đang mở. Các kết quả SDK 54 bên dưới là lịch sử xác minh.
+
+Dự án đã được khởi tạo tại thư mục gốc theo yêu cầu riêng, dùng Expo SDK 54. Cài lại dependency theo lockfile bằng `npm ci`.
+
+| Kiểm tra | Kết quả |
+| --- | --- |
+| TypeScript và Expo Doctor | `tsc --noEmit` đạt. Expo Doctor đạt 18/18 kiểm tra. |
+| Metro | Khởi động được với `npx expo start` và `npx expo start --web` trong môi trường kiểm thử cục bộ. |
+| Bundle | `npx expo export --platform all` thành công cho Android, iOS và Web. |
+| Web trên Chromium | Đạt kiểm tra tạo, sửa, hủy sửa, xóa, hủy xóa, hoàn thành, mở lại, lọc, tải lại, ranh giới Unicode và ngày nhuận, văn bản giống HTML, dữ liệu hỏng và lỗi đọc/ghi. Kiểm tra được focus hộp thoại, Tab, Escape và trả focus. Kiểm tra bố cục ở 320, 375, 768 và 1100 px. |
+| Kiểm thử còn mở | Android và iOS Expo Go trên thiết bị, trình đọc màn hình, và đối chiếu đầy đủ AC-01–48. Bundle thành công chỉ xác minh bước đóng gói. |

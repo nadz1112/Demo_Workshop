@@ -1,0 +1,9 @@
+{
+  "expo": {
+    "name": "Quản lý công việc",
+    "slug": "demo-workshop",
+    "version": "1.0.0",
+    "userInterfaceStyle": "light",
+    "web": { "bundler": "metro" }
+  }
+}
